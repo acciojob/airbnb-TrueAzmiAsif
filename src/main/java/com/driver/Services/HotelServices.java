@@ -24,6 +24,7 @@ public class HotelServices {
         return hotObj.checkFacilities();
     }
     public Hotel updateFacility(List<Facility> facility, String name){
+        if(name=="" || facility==null)return null;
         return hotObj.updateFacility(facility,name);
     }
 }
