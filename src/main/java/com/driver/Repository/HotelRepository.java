@@ -57,10 +57,10 @@ public class HotelRepository {
     public int getPrice(String name){
         return hm.get(name).getPricePerNight();
     }
-    public List<Facility> updateFacility(List<Facility> facility, String name){
+    public Hotel updateFacility(List<Facility> facility, String name){
         for(Facility x: facility){
             if(!hm.get(name).getFacilities().contains(x))hm.get(name).getFacilities().add(x);
         }
-        return hm.get(name).getFacilities();
+        return hm.get(name);
     }
 }

@@ -23,7 +23,7 @@ public class HotelServices {
     public String checkFacilities(){
         return hotObj.checkFacilities();
     }
-    public List<Facility> updateFacility(List<Facility> facility, String name){
+    public Hotel updateFacility(List<Facility> facility, String name){
         return hotObj.updateFacility(facility,name);
     }
 }
