@@ -34,9 +34,7 @@ public class HotelManagementController {
         //incase the hotelName is null or the hotel Object is null return an empty a FAILURE
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
         //in all other cases return SUCCESS after successfully adding the hotel to the hotelDb.
-        String resp=hotObj.addHotel(hotel);
-
-        return resp;
+        return hotObj.addHotel(hotel);
     }
 
     @Autowired
@@ -46,7 +44,7 @@ public class HotelManagementController {
 
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
-        return usObj.add(user);
+        return usObj.addus(user);
     }
 
     @GetMapping("/get-hotel-with-most-facilities")

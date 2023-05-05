@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserServices {
     @Autowired
     UserRepository usObj;
-    public int add(User user){
-        return usObj.add(user);
+    public int addus(User user){
+        return usObj.addus(user);
     }
 }

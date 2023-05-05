@@ -8,9 +8,15 @@ import java.util.HashMap;
 @Repository
 public class UserRepository {
     HashMap<Integer, User> hm=new HashMap<>();
-    public int add(User user){
-        int aadhar=user.getaadharCardNo();
-        hm.put(aadhar,user);
-        return aadhar;
+    public int addus(User user){
+        try{
+            int aadhar=user.getaadharCardNo();
+            hm.put(aadhar,user);
+            return aadhar;
+        }
+        catch(NullPointerException e){
+            return -1;
+        }
+
     }
 }

@@ -13,11 +13,16 @@ public class HotelServices {
     @Autowired
     HotelRepository hotObj;
     public String addHotel(Hotel hotel){
-        if(hotel==null || hotel.getHotelName().equals(""))return "FAILURE";
-        else if(hotObj.hasHotel(hotel)) return "Failure";
-        else{
-            hotObj.addHotel(hotel);
-            return "SUCCESS";
+        try{
+            if(hotel==null || hotel.getHotelName().equals("") || hotel.getHotelName()==null)return "FAILURE";
+            else if(hotObj.hasHotel(hotel)) return "Failure";
+            else{
+                hotObj.addHotel(hotel);
+                return "SUCCESS";
+            }
+        }
+        catch(NullPointerException e){
+            return "Failure";
         }
     }
     public String checkFacilities(){
