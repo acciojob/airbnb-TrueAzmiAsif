@@ -59,7 +59,11 @@ public class HotelRepository {
     }
     public Hotel updateFacility(List<Facility> facility, String name){
         for(Facility x: facility){
-            if(!hm.get(name).getFacilities().contains(x))hm.get(name).getFacilities().add(x);
+            if(!hm.get(name).getFacilities().contains(x)){
+                List<Facility> newfac=hm.get(name).getFacilities();
+                newfac.add(x);
+                hm.get(name).setFacilities(newfac);
+            }
         }
         return hm.get(name);
     }
