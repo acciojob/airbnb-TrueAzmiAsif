@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 public class UserServices {
 //    @Autowired
 //    UserRepository usObj;
+UserRepository usObj =new UserRepository();
     public int addus(User user){
-        UserRepository usObj =new UserRepository();
+
         return usObj.addus(user);
     }
 }

@@ -11,9 +11,10 @@ public class BookingServices {
 //    @Autowired
 //    BookingRepository boObj;
 //    HotelRepository hotObj;
+HotelRepository hotObj =new HotelRepository();
+    BookingRepository boObj =new BookingRepository();
     public int bookRoom(Booking booking){
-        HotelRepository hotObj =new HotelRepository();
-        BookingRepository boObj =new BookingRepository();
+
         int availableRoom=hotObj.getAvail(booking.getHotelName());
         if(booking.getNoOfRooms()>availableRoom)return -1;
         else{
@@ -21,7 +22,7 @@ public class BookingServices {
         }
     }
     public int numberOfBookings(int aadhar){
-        BookingRepository boObj =new BookingRepository();
+        //BookingRepository boObj =new BookingRepository();
         return boObj.numberOfBookings(aadhar);
     }
 }

@@ -11,7 +11,10 @@ import java.util.List;
 public class HotelRepository {
     HashMap<String, Hotel> hm=new HashMap<>();
     public boolean hasHotel(Hotel hotel){
-        return hm.containsKey(hotel.getHotelName());
+        for(String x: hm.keySet()){
+            if(hm.get(x).getHotelName().equals(hotel.getHotelName())) return true;
+        }
+        return false;
     }
     public void addHotel(Hotel hotel){
         hm.put(hotel.getHotelName(),hotel);

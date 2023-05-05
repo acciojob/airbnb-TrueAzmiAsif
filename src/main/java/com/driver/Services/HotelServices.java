@@ -12,8 +12,8 @@ import java.util.List;
 public class HotelServices {
 //    @Autowired
 //    HotelRepository hotObj;
+HotelRepository hotObj =new HotelRepository();
     public String addHotel(Hotel hotel){
-        HotelRepository hotObj =new HotelRepository();
         try{
             if(hotel==null || hotel.getHotelName().equals("") || hotel.getHotelName()==null)return "FAILURE";
             else if(hotObj.hasHotel(hotel)) return "FAILURE";
@@ -27,11 +27,11 @@ public class HotelServices {
         }
     }
     public String checkFacilities(){
-        HotelRepository hotObj =new HotelRepository();
+        //HotelRepository hotObj =new HotelRepository();
         return hotObj.checkFacilities();
     }
     public Hotel updateFacility(List<Facility> facility, String name){
-        HotelRepository hotObj =new HotelRepository();
+        //HotelRepository hotObj =new HotelRepository();
         if(name.equals(""))return null;
         return hotObj.updateFacility(facility,name);
     }
