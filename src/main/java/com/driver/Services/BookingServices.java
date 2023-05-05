@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BookingServices {
-    @Autowired
-    BookingRepository boObj;
-    HotelRepository hotObj;
+//    @Autowired
+//    BookingRepository boObj;
+//    HotelRepository hotObj;
     public int bookRoom(Booking booking){
+        HotelRepository hotObj =new HotelRepository();
+        BookingRepository boObj =new BookingRepository();
         int availableRoom=hotObj.getAvail(booking.getHotelName());
         if(booking.getNoOfRooms()>availableRoom)return -1;
         else{
@@ -19,6 +21,7 @@ public class BookingServices {
         }
     }
     public int numberOfBookings(int aadhar){
+        BookingRepository boObj =new BookingRepository();
         return boObj.numberOfBookings(aadhar);
     }
 }

@@ -25,11 +25,11 @@ import java.util.UUID;
 @RequestMapping("/hotel")
 public class HotelManagementController {
 
-    @Autowired
-    HotelServices hotObj;
+//    @Autowired
+//    HotelServices hotObj;
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
-
+        HotelServices hotObj =new HotelServices();
         //You need to add an hotel to the database
         //incase the hotelName is null or the hotel Object is null return an empty a FAILURE
         //Incase somebody is trying to add the duplicate hotelName return FAILURE
@@ -37,11 +37,11 @@ public class HotelManagementController {
         return hotObj.addHotel(hotel);
     }
 
-    @Autowired
-    UserServices usObj;
+//    @Autowired
+//    UserServices usObj;
     @PostMapping("/add-user")
     public Integer addUser(@RequestBody User user){
-
+        UserServices usObj =new UserServices();
         //You need to add a User Object to the database
         //Assume that user will always be a valid user and return the aadharCardNo of the user
         return usObj.addus(user);
@@ -49,19 +49,19 @@ public class HotelManagementController {
 
     @GetMapping("/get-hotel-with-most-facilities")
     public String getHotelWithMostFacilities(){
-
+        HotelServices hotObj =new HotelServices();
         //Out of all the hotels we have added so far, we need to find the hotelName with most no of facilities
         //Incase there is a tie return the lexicographically smaller hotelName
         //Incase there is not even a single hotel with atleast 1 facility return "" (empty string)
         return hotObj.checkFacilities();
         //return null;
     }
-    @Autowired
-    BookingServices boObj;
+//    @Autowired
+//    BookingServices boObj;
 
     @PostMapping("/book-a-room")
     public int bookARoom(@RequestBody Booking booking){
-
+        BookingServices boObj =new BookingServices();
         //The booking object coming from postman will have all the attributes except bookingId and amountToBePaid;
         //Have bookingId as a random UUID generated String
         //save the booking Entity and keep the bookingId as a primary key
@@ -75,6 +75,7 @@ public class HotelManagementController {
     @GetMapping("/get-bookings-by-a-person/{aadharCard}")
     public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
     {
+        BookingServices boObj =new BookingServices();
         //In this function return the bookings done by a person
         return boObj.numberOfBookings(aadharCard);
         //return 0;
@@ -82,7 +83,7 @@ public class HotelManagementController {
 
     @PutMapping("/update-facilities")
     public Hotel updateFacilities(List<Facility> newFacilities,String hotelName){
-
+        HotelServices hotObj =new HotelServices();
         //We are having a new facilites that a hotel is planning to bring.
         //If the hotel is already having that facility ignore that facility otherwise add that facility in the hotelDb
         //return the final updated List of facilities and also update that in your hotelDb
