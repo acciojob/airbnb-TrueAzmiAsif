@@ -58,18 +58,20 @@ public class HotelRepository {
         return hm.get(name).getPricePerNight();
     }
     public Hotel updateFacility(List<Facility> facility, String name){
-        try{
-            for(Facility x: facility){
+        if(!hm.containsKey(name))return null;
+        if(facility.size()==0)return hm.get(name);
+        for(Facility x: facility){
                 if(!hm.get(name).getFacilities().contains(x)){
                     List<Facility> newfac=hm.get(name).getFacilities();
                     newfac.add(x);
                     hm.get(name).setFacilities(newfac);
                 }
             }
-        }
-        catch (NullPointerException e){
-          return null;
-        }
         return hm.get(name);
+//        catch (NullPointerException e){
+//            System.out.println("caught");
+//          return null;
+//        }
+
     }
 }
