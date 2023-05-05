@@ -16,14 +16,14 @@ public class HotelServices {
         HotelRepository hotObj =new HotelRepository();
         try{
             if(hotel==null || hotel.getHotelName().equals("") || hotel.getHotelName()==null)return "FAILURE";
-            else if(hotObj.hasHotel(hotel)) return "Failure";
+            else if(hotObj.hasHotel(hotel)) return "FAILURE";
             else{
                 hotObj.addHotel(hotel);
                 return "SUCCESS";
             }
         }
         catch(NullPointerException e){
-            return "Failure";
+            return "FAILURE";
         }
     }
     public String checkFacilities(){
